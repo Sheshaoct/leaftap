@@ -277,6 +277,29 @@ public class SeMethods extends Reporter implements WdMethods{
 			reportStep("WebDriverException : "+e.getMessage(), "FAIL");
 		}
 	}
+	
+	public boolean verifyIsSelected(WebElement ele) {
+		// TODO Auto-generated method stub
+		try {
+			if(ele.isSelected())
+			{
+				System.out.println("The element"+ ele + "is selected");
+				return true;
+			}else
+			{
+				System.out.println("The element"+ ele + "is not selected" );
+			}
+		} catch (NoSuchElementException e) {
+			// TODO Auto-generated catch block
+			System.err.println("No Such Element Present");
+			throw new RuntimeException();
+		}
+		finally {
+			takeSnap();
+		}
+		return false;
+	}
+
 
 	public void verifyDisplayed(WebElement ele) {
 		try {
